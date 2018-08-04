@@ -65,7 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("VALUE1", num1 * num2);
             startActivity(intent);
         } else if (v.getId() == R.id.button4) {
-
+            intent.putExtra("VALUE1", num1 / num2);
+            startActivity(intent);
         } else {
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)

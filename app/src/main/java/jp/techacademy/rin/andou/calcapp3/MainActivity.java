@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String edit1 = edittext.getText().toString();
         String edit2 = edittext2.getText().toString();
 
-        if (edit1 == "" ||  edit2 == ""){
+        if (edit1 == "" || edit2 == "") {
             Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             return;
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("VALUE1", num1 / num2);
             startActivity(intent);
         }
-
+    }
 
         @Override
         public boolean onCreateOptionsMenu (Menu menu){
@@ -99,4 +99,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return super.onOptionsItemSelected(item);
         }
     }
-}
+

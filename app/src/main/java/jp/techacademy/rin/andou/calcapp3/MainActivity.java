@@ -61,11 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .setAction("Action", null).show();
             return;
         }
-        catch (ArithmeticException e){
-            Snackbar.make(v, "0で割り切れません", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-            return;
-        }
+
 
 
 
@@ -83,6 +79,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         else if (v.getId() == R.id.button4) {
+             if (num2 == 0){
+                 Snackbar.make(v, "0で割り切れません", Snackbar.LENGTH_LONG)
+                         .setAction("Action", null).show();
+                 return;
+            }
             intent.putExtra("VALUE1", num1 / num2);
             startActivity(intent);
         }

@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ボタン4
         Button button4 = (Button) findViewById(R.id.button4);
         button4.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -50,20 +48,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String edit1 = edittext.getText().toString();
         String edit2 = edittext2.getText().toString();
 
-        if (edit1 == "" || edit2 == "") {
-            Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
+
+        double num1;
+        double num2;
+        //trycatch
+        try {
+            num1 = Double.parseDouble(edit1);
+            num2 = Double.parseDouble(edit2);
+        }
+        catch (NumberFormatException e) {
+            Snackbar.make(v, "なにか入れてください", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            return;
+        }
+        catch (ArithmeticException e){
+            Snackbar.make(v, "0で割り切れません", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             return;
         }
 
-        double num1 = Double.parseDouble(edit1);
-        double num2 = Double.parseDouble(edit2);
+
 
         //持って行く。
         Intent intent = new Intent(this, Main2Activity.class);
 
         if (v.getId() == R.id.button) {
-            intent.putExtra("VALUE1", num1 + num2);
+            intent.putExtra("VALUE1",num1 + num2);
             startActivity(intent);
         } else if (v.getId() == R.id.button2) {
             intent.putExtra("VALUE1", num1 - num2);
@@ -71,7 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (v.getId() == R.id.button3) {
             intent.putExtra("VALUE1", num1 * num2);
             startActivity(intent);
-        } else if (v.getId() == R.id.button4) {
+        }
+        else if (v.getId() == R.id.button4) {
             intent.putExtra("VALUE1", num1 / num2);
             startActivity(intent);
         }
